@@ -16,7 +16,7 @@ namespace Speedwagon
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Productos", action = "MostrarProductos", id = 0 }
+                defaults: new { controller = "Home", action = "Home", id = UrlParameter.Optional }
             );
         }
     }
