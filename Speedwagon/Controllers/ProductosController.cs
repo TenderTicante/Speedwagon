@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Speedwagon.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,42 +9,27 @@ namespace Speedwagon.Controllers
 {
     public class ProductosController : Controller
     {
-        public ActionResult Buscar()
+        List<Datos> producto = new List<Datos>();
+
+        public ProductosController()
         {
-            string nombreProducto = RouteData.Values["nombreProducto"].ToString();
-            //Se ttransforma el texto plano en html
-            nombreProducto = Server.HtmlEncode(nombreProducto);
-            //variable para mostrar el resultado
-            String resultado = String.Empty;
+            Datos producto1 = new Datos();
+            producto1.descripcion = "Manzana";
+            producto1.cantidad = 8;
+            producto1.precio = 25.20m;
+            producto.Add(producto1);
 
-            //Se evalua la variable nombre producto
-            switch(nombreProducto){
-                case "PC":
-                    {
-                        resultado = "Disponible 4 unidades";
-                        break;
-                    }
-                case "RAM":
-                    {
-                        resultado = "Disponible 2 unidades";
-                        break;
-                    }
-                default:
-                    {
-                        resultado = String.Format("El producto {0} no existe en stock",nombreProducto);
-                        break;
-                    }
-            }
-
-            //En lugarde invocar la vista Buscar, se devuelve directamente el codigo Html
-            //Para ello se devuelve una invocacion al metodo content pasandole directamente como parametro
-            //el texto HTML (o texto plano a renderizar) 
-            return Content("<p>"+resultado+"</p>");
+            Datos producto2 = new Datos();
+            producto2.descripcion = "Platanos";
+            producto2.cantidad = 69;
+            producto2.precio = 42.00m;
+            producto.Add(producto2);
         }
         // GET: Productos
-        public ActionResult Index()
+        public ViewResult MostrarProductos(int id)
         {
-            return View();
+            Datos dato1 = producto[id];
+            return View(dato1);
         }
     }
 }

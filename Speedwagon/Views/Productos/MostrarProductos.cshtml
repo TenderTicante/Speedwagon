@@ -1,0 +1,22 @@
+﻿@model Speedwagon.Models.Datos
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MostrarProductos</title>
+</head>
+<body>
+    <div>
+         <h3>Producto</h3>
+        <label>Descripcion del producto: @Model.descripcion<br></label>
+        <label>Cantidad en stock: @Model.cantidad<br></label>
+        <label>Precio: @Model.precio<br></label>
+     </div>
+</body>
+</html>

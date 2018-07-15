@@ -14,15 +14,9 @@ namespace Speedwagon
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-            name: "Buscar",
-            url: "Buscar/{nombreProducto}",
-            defaults: new { controller = "Productos", action = "Buscar", nombreProducto = " " }
-);
-
-            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Productos", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Productos", action = "MostrarProductos", id = 0 }
             );
         }
     }
