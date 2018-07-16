@@ -1,4 +1,4 @@
-﻿@model Speedwagon.Models.Datos
+﻿@model Speedwagon.Models.DatosEmail
 
 @{
     Layout = null;
@@ -16,7 +16,19 @@
         <h3>Ingresar Datos</h3>
         @using (Html.BeginForm("DatosPersonales", "Home", FormMethod.Post))
         {
-            @Html.EditorForModel()
+            @Html.ValidationSummary(true,"",new { @class = "text-danger"})
+            <div>
+                <div>
+                    @Html.LabelFor(m => m.email,new {@class = "control-label" })
+                    @Html.TextBoxFor(m => m.email,new { @class = "form-control"})
+                    @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger"})
+                </div><br/>
+                <div>
+                    @Html.LabelFor(m => m.password, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-danger" })
+                </div><br />
+            </div>
             <input type="submit" value="Enviar"/>
         }
     </div>

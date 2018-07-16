@@ -15,7 +15,29 @@ namespace Speedwagon.Controllers
             return View();
         }
 
-        public ActionResult DatosPersonales(Datos datos)
+        public ActionResult DatosPersonales(DatosEmail datos)
+        {
+            if (ModelState.IsValid)
+            {
+                String email = datos.email;
+                String password = datos.password;
+
+                if (email == "tenderticante@gmail.com" && password=="1234")
+                {
+                    return View();
+                }
+                else
+                {
+                    return View("Index");
+                }
+            }
+            else
+            {
+                return View("Index");
+            }
+        }
+
+        public ActionResult MostrarDatos(Datos datos)
         {
             if (ModelState.IsValid)
             {
@@ -23,7 +45,7 @@ namespace Speedwagon.Controllers
             }
             else
             {
-                return View("Index");
+                return View("DatosPersonales");
             }
         }
     }

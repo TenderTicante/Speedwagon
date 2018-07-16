@@ -12,31 +12,30 @@
     <title>DatosPersonales</title>
 </head>
 <body>
-    <div> 
-        <table>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.nombre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.apellido)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.edad)
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayFor(model => model.nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.apellido)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.edad)
-                </td>
-            </tr>
-        </table>
+    <div>
+        <h3>Ingresar Datos</h3>
+        @using (Html.BeginForm("MostrarDatos", "Home", FormMethod.Post))
+        {
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="datos">
+                <div>
+                    @Html.LabelFor(p => p.nombre, new { @class = "control-label" })
+                    @Html.TextBoxFor(p => p.nombre, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.nombre, "", new { @class = "text-danger" })
+                </div><br />
+                <div>
+                    @Html.LabelFor(p => p.apellido, new { @class = "control-label" })
+                    @Html.TextBoxFor(p => p.apellido, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.apellido, "", new { @class = "text-danger" })
+                </div><br />
+                <div>
+                    @Html.LabelFor(p => p.edad, new { @class = "control-label" })
+                    @Html.TextBoxFor(p => p.edad, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.edad, "", new { @class = "text-danger" })
+                </div><br />
+            </div>
+            <input type="submit" value="Enviar" />
+        }
     </div>
 </body>
 </html>
