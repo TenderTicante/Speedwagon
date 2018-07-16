@@ -22,7 +22,7 @@ namespace Speedwagon.Controllers
                 String email = datos.email;
                 String password = datos.password;
 
-                if (email == "tenderticante@gmail.com" && password=="1234")
+                if (email == "tenderticante@gmail.com" && password=="123456")
                 {
                     return View();
                 }

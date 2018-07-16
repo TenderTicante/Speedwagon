@@ -1,5 +1,5 @@
 ﻿@model Speedwagon.Models.DatosEmail
-
+@using System.Web.Optimization
 @{
     Layout = null;
 }
@@ -10,6 +10,9 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryvalunobtrusive")
 </head>
 <body>
     <div> 
@@ -27,6 +30,11 @@
                     @Html.LabelFor(m => m.password, new { @class = "control-label" })
                     @Html.TextBoxFor(m => m.password, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-danger" })
+                </div><br />
+                <div>
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
                 </div><br />
             </div>
             <input type="submit" value="Enviar"/>
