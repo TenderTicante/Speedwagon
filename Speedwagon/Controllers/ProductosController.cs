@@ -9,7 +9,7 @@ namespace Speedwagon.Controllers
 {
     public class ProductosController : Controller
     {
-        List<Datos> producto = new List<Datos>();
+        /*List<Datos> producto = new List<Datos>();
 
         public ProductosController()
         {
@@ -30,6 +30,6 @@ namespace Speedwagon.Controllers
         {
             Datos dato1 = producto[id];
             return View(dato1);
-        }
+        }*/
     }
 }

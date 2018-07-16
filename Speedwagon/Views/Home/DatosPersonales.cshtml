@@ -1,0 +1,42 @@
+﻿@model Speedwagon.Models.Datos
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DatosPersonales</title>
+</head>
+<body>
+    <div> 
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.apellido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.edad)
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.edad)
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

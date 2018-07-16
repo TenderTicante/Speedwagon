@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Speedwagon.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,14 +10,21 @@ namespace Speedwagon.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public ActionResult Home()
+        public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult DatosPersonales(Datos datos)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                return View(datos);
+            }
+            else
+            {
+                return View("Index");
+            }
         }
     }
 }
